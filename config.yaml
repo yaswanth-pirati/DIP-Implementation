@@ -1,0 +1,44 @@
+data:
+  num_workers: 4
+  pin_memory: true
+
+  train_batch_size:
+    - 2
+    - 1
+    - 1
+
+  train_img_size:
+    - 256
+    - 256
+    - 288
+
+
+  train_path: ./dataset/train
+  valid_path: ./dataset/valid
+
+
+optim:
+  lr_init: 0.00015
+  lr_min: 5.0e-7
+  weight_decay: 1.0e-6
+
+  warmup_epochs: 6
+
+
+train:
+  device: cuda
+  model_name: IACC
+  task_name: improved_fast
+
+  save_dir: ./log
+  seed: 0
+
+  resume: false
+
+  stage_epochs:
+    - 18
+    - 8
+    - 6
+
+  valid_frequency: 1
+  use_amp: true
